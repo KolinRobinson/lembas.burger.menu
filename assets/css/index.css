@@ -1,0 +1,272 @@
+html {
+  font-size: calc((10 / 1440) * 100vw);
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  html {
+    font-size: calc((10 / 320) * 100vw);
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+h1 {
+  font-size: 7rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  background: #ff726f;
+}
+
+nav {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.tabs {
+  background: none;
+  height: 100%;
+  width: auto;
+}
+
+.tabs .tab {
+  max-width: 80px;
+}
+
+.tabs .tab a {
+  color: black;
+  opacity: 75%;
+  -webkit-transition: .5s all ease-in;
+  transition: .5s all ease-in;
+  padding: 0 13px;
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  .tabs .tab a {
+    font-size: 1rem;
+  }
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  opacity: 100%;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: black;
+  will-change: left, right;
+}
+
+main {
+  padding-top: 12rem;
+  font-size: 5rem;
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  main {
+    padding-top: 10rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 800px) {
+  main {
+    padding-top: 16rem;
+    font-size: 7rem;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  #test1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 780px) {
+  #test1 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
+
+@media (min-width: 780px) and (max-width: 1200px) {
+  #test1 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+}
+
+@media (min-width: 1201px) {
+  #test1 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  .item {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.item-header h2 {
+  font-size: 2rem;
+  width: 100%;
+  padding: 0 .5rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.item p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.item .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.item .price h3 {
+  width: 100%;
+  padding: 0 7px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.item .price h3 span {
+  font-size: 2rem;
+}
+
+.item .price__counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.item .price__counter button {
+  border-radius: 50%;
+  border: 1px solid black;
+  background: none;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.item .price__counter .item-counter {
+  width: 2rem;
+  margin: 0 1rem;
+  text-align: center;
+}
+/*# sourceMappingURL=index.css.map */
