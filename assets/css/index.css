@@ -95,13 +95,6 @@ main {
   font-size: 5rem;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
-  main {
-    padding-top: 10rem;
-    font-size: 1rem;
-  }
-}
-
 @media (min-width: 420px) and (max-width: 800px) {
   main {
     padding-top: 16rem;
@@ -110,7 +103,53 @@ main {
 }
 
 @media (min-width: 300px) and (max-width: 420px) {
-  #test1 {
+  main {
+    padding-top: 10rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  #cardShop {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+
+@media (min-width: 780px) and (max-width: 1200px) {
+  #cardShop {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 780px) {
+  #cardShop {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 420px) {
+  #cardShop {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -124,45 +163,6 @@ main {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-}
-
-@media (min-width: 420px) and (max-width: 780px) {
-  #test1 {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: (1fr)[5];
-        grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-  }
-}
-
-@media (min-width: 780px) and (max-width: 1200px) {
-  #test1 {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-    -ms-grid-rows: (1fr)[5];
-        grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-  }
-}
-
-@media (min-width: 1201px) {
-  #test1 {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: (1fr)[5];
-        grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
   }
 }
 
@@ -268,5 +268,6 @@ main {
   width: 2rem;
   margin: 0 1rem;
   text-align: center;
+  color: black;
 }
 /*# sourceMappingURL=index.css.map */

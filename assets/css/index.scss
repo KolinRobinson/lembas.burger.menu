@@ -72,29 +72,24 @@ nav {
 main {
     padding-top: 12rem;
     font-size: 5rem;
-    @media (min-width: 300px) and (max-width: 420px) {
-        padding-top: 10rem;
-        font-size: 1rem;
-    }
     @media (min-width: 420px) and (max-width: 800px) {
         padding-top: 16rem;
         font-size: 7rem;
     }
+    @media (min-width: 300px) and (max-width: 420px) {
+        padding-top: 10rem;
+        font-size: 1rem;
+    }
+
 }
 
-#test1 {
-    @media (min-width: 300px) and (max-width: 420px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    @media (min-width: 420px) and (max-width: 780px) {
+#cardShop {
+    @media (min-width: 1201px) {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
     }
     @media (min-width: 780px) and (max-width: 1200px) {
         display: grid;
@@ -103,12 +98,18 @@ main {
         grid-column-gap: 15px;
         grid-row-gap: 15px;
     }
-    @media (min-width: 1201px) {
+    @media (min-width: 420px) and (max-width: 780px) {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+    @media (min-width: 300px) and (max-width: 420px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
