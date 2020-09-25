@@ -263,6 +263,7 @@ waitStore.then(function() {
             });
 
             clearCart()
+            renderCart()
 
             var xhr = new XMLHttpRequest(); // инициализируем AJAX запрос
             xhr.open('POST', url, true); // отправляем наше сообщение методом POST на сервак телеги
