@@ -80,28 +80,27 @@ main {
         padding-top: 10rem;
         font-size: 1rem;
     }
-
 }
 
 #cardShop {
     @media (min-width: 1201px) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 20px;
     }
     @media (min-width: 780px) and (max-width: 1200px) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 15px;
         grid-row-gap: 15px;
     }
     @media (min-width: 420px) and (max-width: 780px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 10px;
         grid-row-gap: 10px;
     }
@@ -175,4 +174,119 @@ main {
             }
         }
     }
+}
+
+.item-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 150px;
+    margin: 2rem auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    @media (min-width: 300px) and (max-width: 420px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        margin-bottom: 5rem;
+        padding: 5px;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+    h3 {
+        margin-bottom: 1rem;
+    }
+    .cart {
+        &-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            @media (min-width: 300px) and (max-width: 420px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .info {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                min-height: 1px;
+                &__counter {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    button {
+                        border-radius: 50%;
+                        border: 1px solid black;
+                        background: none;
+                        font-size: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                    .item-counter {
+                        width: 2rem;
+                        margin: 0 1rem;
+                        text-align: center;
+                        color: black;
+                    }
+                }
+            }
+        }
+        &-img {
+            width: 150px;
+            height: auto;
+            margin: 0 3rem;
+        }
+        &-right {
+            display: flex;
+            align-items: center;
+            @media (min-width: 300px) and (max-width: 420px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .total-price {
+                font-size: 3rem;
+            }
+            .delete-item {
+                margin: 0 3rem;
+                cursor: pointer;
+                font-size: 2.5rem;
+                line-height: 1;
+                padding: 5px 15px 10px;
+                border: 1px solid black;
+                background: rgba(255, 50, 50, .5);
+                border-radius: 20px;
+                transition: .5s all ease-in-out;
+                &:hover {
+                    background: rgba(255, 50, 50, 1);
+                }
+            }
+        }
+    }
+}
+
+#allPrice {
+    @media (min-width: 300px) and (max-width: 420px) {
+        font-size: 3rem;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submitCart {
+    margin: 0 auto;
 }
