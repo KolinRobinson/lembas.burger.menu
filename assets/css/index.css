@@ -20,10 +20,14 @@ html {
   font-family: 'TT2020', sans-serif;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   html {
     font-size: calc((10 / 320) * 100vw);
   }
+}
+
+input {
+  color: white;
 }
 
 .container {
@@ -49,7 +53,7 @@ h1 {
   font-family: 'Courier New', Courier, monospace;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   h1 {
     font-size: 2rem;
   }
@@ -110,7 +114,7 @@ nav {
   border-bottom: 2px solid black;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   .tabs .tab a {
     font-size: 1.2rem;
   }
@@ -142,7 +146,7 @@ main {
   }
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   main {
     padding-top: 10rem;
     font-size: 1rem;
@@ -165,6 +169,18 @@ main {
           justify-content: center;
 }
 
+.counter-cart {
+  position: relative;
+}
+
+.counter-cart:after {
+  content: attr(data-count);
+  position: absolute;
+  top: -12px;
+  right: 0px;
+  color: inherit;
+}
+
 .item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -179,7 +195,7 @@ main {
   width: 100%;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   .item {
     font-size: 1rem;
     padding-bottom: 1rem;
@@ -321,7 +337,7 @@ main {
   border-bottom: 1px solid white;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   .item-cart {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -363,7 +379,7 @@ main {
   height: 100%;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   .item-cart .cart-left {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -448,7 +464,7 @@ main {
           align-items: center;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   .item-cart .cart-right {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -487,7 +503,7 @@ main {
   background: #ff3232;
 }
 
-@media (min-width: 300px) and (max-width: 420px) {
+@media (min-width: 300px) and (max-width: 450px) {
   #allPrice {
     font-size: 3rem;
   }

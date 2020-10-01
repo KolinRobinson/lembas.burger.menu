@@ -8,6 +8,7 @@ let shop = document.querySelector('#cardShop');
 let cart = document.querySelector('#siteCart');
 let form = document.querySelector('#formCart');
 let allPrice = document.querySelector('#allPrice');
+let cartPrice;
 
 
 let client = contentful.createClient({
@@ -112,7 +113,8 @@ waitStore.then(function() {
 
     function renderCart() {
         cart.textContent = '';
-        let cartPrice = 0;
+        cartPrice = 0;
+        let allCount = 0;
 
         for (let id in store) {
             if (store[id].count >> 0) {
@@ -150,9 +152,11 @@ waitStore.then(function() {
                     `
                 cart.append(itemCart);
                 cartPrice += id.totalPrice;
+                allCount += countNumb;
             }
-
-            allPrice.dataset.price = cartPrice;
+            console.log(allCount)
+            document.querySelector('.counter-cart').setAttribute('data-count', allCount)
+            // allPrice.dataset.price = cartPrice;
             allPrice.textContent = `Сумма замовлення: ${cartPrice} Грн`;
 
         }
@@ -239,7 +243,7 @@ waitStore.then(function() {
                 }
             }
             objCart["product"] = product;
-            objCart["fullPrice"] = allPrice.dataset.price;
+            objCart["fullPrice"] = cartPrice;
 
 
             sendMsg(objCart)
