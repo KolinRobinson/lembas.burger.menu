@@ -218,6 +218,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 75px;
 }
 
 .item .price h3 {
