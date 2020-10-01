@@ -176,6 +176,7 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  width: 100%;
 }
 
 @media (min-width: 300px) and (max-width: 420px) {

@@ -122,6 +122,7 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 100%;
     @media (min-width: 300px) and (max-width: 420px) {
         font-size: 1rem;
         padding-bottom: 1rem;
