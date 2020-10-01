@@ -5,7 +5,7 @@ html {
     color: white;
     background: #000;
     font-family: 'TT2020', sans-serif;
-    @media (min-width: 300px) and (max-width: 450px) {
+    @media (min-width: 280px) and (max-width: 450px) {
         font-size: calc((10 / 320) * 100vw);
     }
 }
