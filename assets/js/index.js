@@ -54,7 +54,7 @@ waitStore.then(function() {
                             <p>Склад: ${id.desc}</p>
                         </div>
                         <div class="price">
-                            <h3 class="item-price"><span><b>${id.price_grn}</b></span></h3>
+                            <h3 class="item-price">${id.price_grn}</h3>
                             <div class="price__counter">
                                 <button class="button-minus" data-articul="${id.articul}">-</button>
                                 <p class="item-counter" data-count="${countNumb}">${countNumb}</p>
