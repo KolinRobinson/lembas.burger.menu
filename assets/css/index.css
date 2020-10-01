@@ -14,7 +14,7 @@
 }
 
 html {
-  font-size: calc((10 / 520) * 100vw);
+  font-size: calc((10 / 400) * 100vw);
   color: white;
   background: #000;
   font-family: 'TT2020', sans-serif;
@@ -49,14 +49,8 @@ img {
 }
 
 h1 {
-  font-size: 7rem;
+  font-size: 2rem;
   font-family: 'Courier New', Courier, monospace;
-}
-
-@media (min-width: 300px) and (max-width: 450px) {
-  h1 {
-    font-size: 2rem;
-  }
 }
 
 h2 {
@@ -135,13 +129,13 @@ nav {
 }
 
 main {
-  padding-top: 12rem;
+  padding-top: 8rem;
   font-size: 5rem;
 }
 
-@media (min-width: 420px) and (max-width: 800px) {
+@media (min-width: 450px) and (max-width: 800px) {
   main {
-    padding-top: 16rem;
+    padding-top: 8rem;
     font-size: 7rem;
   }
 }
@@ -193,13 +187,13 @@ main {
           justify-content: center;
   position: relative;
   width: 100%;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 300px) and (max-width: 450px) {
   .item {
     font-size: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
   }
 }
 
@@ -214,8 +208,8 @@ main {
 }
 
 .item .img_product {
-  width: 65px;
-  height: 65px;
+  width: 6.5rem;
+  height: 6.5rem;
   border-radius: 20%;
 }
 
@@ -262,12 +256,20 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 75px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin: 0;
+  max-width: 140px;
+  width: 100%;
+}
+
+@media (min-width: 300px) and (max-width: 450px) {
+  .item .price {
+    max-width: 75px;
+  }
 }
 
 .item .price h3 {
