@@ -3,6 +3,14 @@ const TOKEN = '1272364794:AAFiiNKTnubqFnMZKsgjAgYjVH3cHVi8uaY'; // токен о
 const CHAT_ID = '-369991492';
 
 
+console.log(document.body.clientWidth > 1024)
+
+if(document.body.clientWidth > 1024){
+    document.body.textContent = `сайт доступний тільки на мобільних телефонах та планшетах. Дякуємо за розуміння.`
+} else{
+
+    console.log('work')
+
 let store = {};
 let shop = document.querySelector('#cardShop');
 let cart = document.querySelector('#siteCart');
@@ -174,26 +182,34 @@ waitStore.then(function() {
 
     function renderForm() {
         form.textContent = '';
-
+        let CurrentTime = new Date();
+        let timeNow;
+        CurrentTime.setMinutes(CurrentTime.getMinutes() + 15);
+        console.log(CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "19:40");
+        if(CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "19:40" ){
+            timeNow = "08:20";
+        } else {
+            timeNow = CurrentTime.getHours()+":"+CurrentTime.getMinutes();
+        }
         let cartForm = document.createElement('form');
         cartForm.className = 'col s12 form-cart';
         cartForm.innerHTML = `
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input placeholder="Ваше ім'я" id="first_name" required type="text" class="validate form-cart-input">
+                <input placeholder="Ваше ім'я" id="first_name" autocomplete="on" required type="text" class="validate form-cart-input">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input placeholder="Ваш номер телефону" id="telephone" required type="tel" class="validate form-cart-input">
+                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{11}" id="telephone" required type="tel" class="validate form-cart-input">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">timer</i>
-                <input placeholder="О котрій на вас чекати?" id="time" required type="text" class="timepicker form-cart-input">
+                <input placeholder="О котрій на вас чекати?" pattern="[0-9]{2}:[0-9]{2}" id="time" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
                 </div>
             </div>
             <button id="submitCart" class="btn waves-effect waves-light" type="submit">Замовити
@@ -217,8 +233,6 @@ waitStore.then(function() {
                 for (let i = 0; i < inputs.length; i++) {
                     if (!inputs[i].value) {
                         submitCart.disabled = true;
-                    } else {
-                        submitCart.disabled = false;
                     }
                 }
             })
@@ -287,8 +301,5 @@ waitStore.then(function() {
 
 })
 
-
-
-
-
+}
 // document.querySelector('#cardShop').innerHTML = out;
