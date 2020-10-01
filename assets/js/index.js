@@ -1,6 +1,6 @@
 M.AutoInit();
-const TOKEN = '1074223510:AAEe-0iWEyHHKiTfqAM_mhrPOuObLuC9DRs'; // токен от BotFather
-const CHAT_ID = '-333712879';
+const TOKEN = '1272364794:AAFiiNKTnubqFnMZKsgjAgYjVH3cHVi8uaY'; // токен от BotFather
+const CHAT_ID = '-369991492';
 
 
 let store = {};
@@ -11,17 +11,18 @@ let allPrice = document.querySelector('#allPrice');
 
 
 let client = contentful.createClient({
-    space: 'ffbcm6lpk46x',
+    space: 'n4lihpuy3y0a',
     environment: 'master', // defaults to 'master' if not set
-    accessToken: 'XW8MZTmiDrHY1hwJ7WkZ8zuRCuhmdKNkYLBa1la7xiM'
+    accessToken: 'Q-B6HxCCjpFC_SBefFgkdsRamhRw2xFhH2orGfUTvcQ'
 })
 
 let waitStore = new Promise((resolve, reject) => {
     client.getEntries()
         .then(function(entries) {
             entries.items.forEach(function(entry) {
-                if (entry.sys.contentType.sys.id == 'product') {
+                if (entry.sys.contentType.sys.id == 'Product') {
                     store[entry.fields.articul] = entry.fields
+                    store[entry.fields.articul]['count'] = 0;
                 }
             })
             resolve(store);
@@ -30,6 +31,7 @@ let waitStore = new Promise((resolve, reject) => {
 
 
 waitStore.then(function() {
+    console.log(store)
     function renderShop() {
         shop.textContent = '';
 
@@ -42,18 +44,17 @@ waitStore.then(function() {
             } else {
                 countNumb = 0;
             }
-            let img = id.image.fields;
+            let img = id.photo.fields;
             item.className = 'item';
             item.dataset.articul = id.articul;
             item.innerHTML = `
+                         <img src="${img.file.url}" class="img_product" alt="${img.title}">
                         <div class="item-header">
-                            <img src="${img.file.url}" alt="${img.title}">
-                            <h2>${id.name}</h2>
+                            <h2>${id.title}</h2>
+                            <p>Склад: ${id.desc}</p>
                         </div>
-
-                        <p>${id.description}</p>
                         <div class="price">
-                            <h3 class="item-price">price: <span><b>${id.price} UAH</b></span></h3>
+                            <h3 class="item-price"><span><b>${id.price_grn}</b></span></h3>
                             <div class="price__counter">
                                 <button class="button-minus" data-articul="${id.articul}">-</button>
                                 <p class="item-counter" data-count="${countNumb}">${countNumb}</p>
@@ -124,8 +125,8 @@ waitStore.then(function() {
                 } else {
                     countNumb = 0;
                 }
-                let img = id.image.fields;
-                id.totalPrice = countNumb * id.price;
+                let img = id.photo.fields;
+                id.totalPrice = countNumb * id.price_grn;
 
 
                 itemCart.innerHTML = `
@@ -134,7 +135,7 @@ waitStore.then(function() {
                 <img src="${img.file.url}" alt="${img.title}">
                 </div>
                 <div class="info">
-                    <h3 class="item-title">${id.name}</h3>
+                    <h3 class="item-title">${id.title}</h3>
                     <div class="info__counter">
                         <button class="button-minus" data-articul="${id.articul}">-</button>
                         <p class="item-counter" data-count="${countNumb}">${countNumb}</p>
@@ -231,9 +232,9 @@ waitStore.then(function() {
             for (let id in store) {
                 if (store[id].count >> 0) {
                     product += `
-                    \n\n Товар: ${store[id].name}
+                    \n\n Товар: ${store[id].title}
                     \n Количество: ${store[id].count} шт.
-                    \n Цена: ${store[id].price} грн.
+                    \n Цена: ${store[id].price_grn} грн.
                     `
                 }
             }

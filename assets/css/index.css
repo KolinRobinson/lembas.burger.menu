@@ -1,11 +1,31 @@
+@font-face {
+  font-family: 'TT2020';
+  src: url("../font/tt2020/tt2020.woff") format("woff"), url("../font/tt2020/tt2020.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'astakhov';
+  src: url("../font/astakhov/astakhov.woff") format("woff"), url("../font/astakhov/astakhov.woff2") format("woff2");
+}
+
 html {
   font-size: calc((10 / 1440) * 100vw);
+  color: white;
+  background: #000;
+  font-family: 'TT2020', sans-serif;
 }
 
 @media (min-width: 300px) and (max-width: 420px) {
   html {
     font-size: calc((10 / 320) * 100vw);
   }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 button {
@@ -30,10 +50,15 @@ h1 {
   }
 }
 
+h2 {
+  font-family: 'astakhov', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 header {
   width: 100%;
   position: fixed;
-  background: #ff726f;
+  background: black;
+  border-bottom: 1px solid white;
 }
 
 nav {
@@ -63,30 +88,31 @@ nav {
 }
 
 .tabs .tab a {
-  color: black;
+  color: white;
   opacity: 75%;
   -webkit-transition: .5s all ease-in;
   transition: .5s all ease-in;
   padding: 0 13px;
+  border-bottom: 2px solid black;
 }
 
 @media (min-width: 300px) and (max-width: 420px) {
   .tabs .tab a {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
   opacity: 100%;
-  color: black;
-  border-bottom: 1px solid black;
+  color: red;
+  border-bottom: 2px solid red;
 }
 
 .tabs .indicator {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: black;
+  background-color: red;
   will-change: left, right;
 }
 
@@ -109,64 +135,7 @@ main {
   }
 }
 
-@media (min-width: 1201px) {
-  #cardShop {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: (1fr)[1];
-        grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-  }
-}
-
-@media (min-width: 780px) and (max-width: 1200px) {
-  #cardShop {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-    -ms-grid-rows: (1fr)[1];
-        grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-  }
-}
-
-@media (min-width: 420px) and (max-width: 780px) {
-  #cardShop {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: (1fr)[1];
-        grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-  }
-}
-
-@media (min-width: 300px) and (max-width: 420px) {
-  #cardShop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-.item {
+#cardShop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,9 +143,24 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 5px;
-  border: 1px solid black;
-  padding: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (min-width: 300px) and (max-width: 420px) {
@@ -184,6 +168,12 @@ main {
     font-size: 1rem;
     margin-bottom: 2rem;
   }
+}
+
+.item .img_product {
+  width: 65px;
+  height: 65px;
+  border-radius: 20%;
 }
 
 .item-header {
@@ -204,16 +194,20 @@ main {
 }
 
 .item-header h2 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   width: 100%;
-  padding: 0 .5rem;
   word-wrap: break-word;
   text-align: center;
+  margin: 0;
+  font-family: 'astakhov';
 }
 
 .item p {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-family: 'TT2020';
+  letter-spacing: -.2px;
+  line-height: .8rem;
 }
 
 .item .price {
@@ -234,7 +228,7 @@ main {
 }
 
 .item .price h3 span {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .item .price__counter {
@@ -251,24 +245,31 @@ main {
 
 .item .price__counter button {
   border-radius: 50%;
-  border: 1px solid black;
+  border: none;
   background: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 0;
+  padding-bottom: 7px;
+  color: white;
+  font-weight: 800;
 }
 
 .item .price__counter .item-counter {
   width: 2rem;
-  margin: 0 1rem;
   text-align: center;
-  color: black;
+  font-size: 2rem;
+  color: white;
 }
 
 .item-cart {
@@ -284,7 +285,7 @@ main {
   min-height: 150px;
   margin: 2rem auto;
   padding-bottom: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 
 @media (min-width: 300px) and (max-width: 420px) {
@@ -302,7 +303,7 @@ main {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border: 1px solid black;
+    border: 1px solid white;
     margin-bottom: 5rem;
     padding: 5px;
   }
@@ -379,7 +380,7 @@ main {
 
 .item-cart .cart-left .info__counter button {
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid white;
   background: none;
   font-size: 2rem;
   display: -webkit-box;
@@ -396,7 +397,7 @@ main {
   width: 2rem;
   margin: 0 1rem;
   text-align: center;
-  color: black;
+  color: white;
 }
 
 .item-cart .cart-img {
@@ -442,7 +443,7 @@ main {
   font-size: 2.5rem;
   line-height: 1;
   padding: 5px 15px 10px;
-  border: 1px solid black;
+  border: 1px solid white;
   background: rgba(255, 50, 50, 0.5);
   border-radius: 20px;
   -webkit-transition: .5s all ease-in-out;

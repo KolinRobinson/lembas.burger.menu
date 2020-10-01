@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'TT2020';
+  src: url("../font/tt2020/tt2020.woff") format("woff"), url("../font/tt2020/tt2020.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'astakhov';
+  src: url("../font/astakhov/astakhov.woff") format("woff"), url("../font/astakhov/astakhov.woff2") format("woff2");
+}
+/*# sourceMappingURL=font.css.map */
