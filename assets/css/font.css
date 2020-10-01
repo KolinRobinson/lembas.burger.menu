@@ -7,4 +7,9 @@
   font-family: 'astakhov';
   src: url("../font/astakhov/astakhov.woff") format("woff"), url("../font/astakhov/astakhov.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: 'future';
+  src: url("../font/future/future.woff") format("woff"), url("../font/future/future.woff2") format("woff2");
+}
 /*# sourceMappingURL=font.css.map */
