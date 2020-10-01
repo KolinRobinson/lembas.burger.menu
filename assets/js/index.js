@@ -140,29 +140,23 @@ waitStore.then(function() {
 
 
                 itemCart.innerHTML = `
-                <div class="cart-left">
-                <div class="cart-img">
-                <img src="${img.file.url}" alt="${img.title}">
-                </div>
                 <div class="info">
                     <h3 class="item-title">${id.title}</h3>
-                    <div class="info__counter">
+                </div>
+                <div class="info__counter">
                         <button class="button-minus" data-articul="${id.articul}">-</button>
-                        <p class="item-counter" data-count="${countNumb}">${countNumb}</p>
+                        <p class="item-counter number" data-count="${countNumb}">${countNumb}</p>
                         <button class="button-plus" data-articul="${id.articul}">+</button>
                     </div>
+                <div class="cart-right">
+                    <div class="total-price number" data-articul="${id.articul}">${id.totalPrice} <span>Грн.</span></div>
+                    <button class="delete-item" data-articul="${id.articul}">Видалити</button>
                 </div>
-            </div>
-            <div class="cart-right">
-                <div class="total-price" data-articul="${id.articul}">${id.totalPrice} Грн.</div>
-                <button class="delete-item" data-articul="${id.articul}">Видалити</button>
-            </div>
                     `
                 cart.append(itemCart);
                 cartPrice += id.totalPrice;
                 allCount += countNumb;
             }
-            console.log(allCount)
             document.querySelector('.counter-cart').setAttribute('data-count', allCount)
             // allPrice.dataset.price = cartPrice;
             allPrice.textContent = `Сумма замовлення: ${cartPrice} Грн`;
@@ -203,13 +197,13 @@ waitStore.then(function() {
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{11}" id="telephone" required type="tel" class="validate form-cart-input">
+                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{6, 11}" id="telephone" required type="tel" class="validate form-cart-input">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">timer</i>
-                <input placeholder="О котрій на вас чекати?" pattern="[0-9]{2}:[0-9]{2}" id="time" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
+                <input placeholder="О котрій на вас чекати?"  id="time" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
                 </div>
             </div>
             <button id="submitCart" class="btn waves-effect waves-light" type="submit">Замовити
@@ -232,11 +226,15 @@ waitStore.then(function() {
             inputs[i].addEventListener('change', () => {
                 for (let i = 0; i < inputs.length; i++) {
                     if (!inputs[i].value) {
-                        submitCart.disabled = true;
+                        return submitCart.disabled = true;
+                    } else if(document.querySelector('#time').value < timeNow || document.querySelector('#time').value > document.querySelector('#time').max ){
+                        return submitCart.disabled = true;
+                    }
+                    else {
+                        submitCart.disabled = false;
                     }
                 }
             })
-
         }
 
         submitCart.addEventListener('click', e => {

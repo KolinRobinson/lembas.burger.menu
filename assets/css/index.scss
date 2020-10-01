@@ -103,11 +103,9 @@ main {
     padding-top: 8rem;
     font-size: 5rem;
     @media (min-width: 450px) and (max-width: 800px) {
-        padding-top: 8rem;
         font-size: 7rem;
     }
     @media (min-width: 300px) and (max-width: 450px) {
-        padding-top: 10rem;
         font-size: 1rem;
     }
 }
@@ -235,68 +233,53 @@ main {
     margin: 2rem auto;
     padding-bottom: 10px;
     border-bottom: 1px solid white;
-    @media (min-width: 300px) and (max-width: 450px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid white;
-        margin-bottom: 5rem;
-        padding: 5px;
-    }
     p {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     h3 {
         margin-bottom: 1rem;
+        font-family: 'astakhov';
+        font-size: 1.5rem;
+    }
+    .info__counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 1.5rem;
+        max-width: 70px;
+        button {
+            border-radius: 50%;
+            border: none;
+            background: none;
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            align-items: center;
+            line-height: 0;
+            padding-bottom: 7px;
+            color: white;
+            font-weight: 800;
+        }
+        .item-counter {
+            width: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+    }
+    .info {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        min-height: 1px;
+        display: flex;
+        flex: 1 1;
     }
     .cart {
-        &-left {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            @media (min-width: 300px) and (max-width: 450px) {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-            .info {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                height: 100%;
-                min-height: 1px;
-                &__counter {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    button {
-                        border-radius: 50%;
-                        border: 1px solid white;
-                        background: none;
-                        font-size: 2rem;
-                        display: flex;
-                        justify-content: center;
-                        width: 3rem;
-                        height: 3rem;
-                    }
-                    .item-counter {
-                        width: 2rem;
-                        margin: 0 1rem;
-                        text-align: center;
-                        color: white;
-                    }
-                }
-            }
-        }
-        &-img {
-            width: 150px;
-            height: auto;
-            margin: 0 3rem;
-        }
         &-right {
             display: flex;
             align-items: center;
@@ -307,16 +290,19 @@ main {
                 justify-content: center;
             }
             .total-price {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                span{
+                    font-size: 1.5rem;
+                }
             }
             .delete-item {
-                margin: 0 3rem;
                 cursor: pointer;
-                font-size: 2.5rem;
+                font-size: 1.5rem;
                 line-height: 1;
                 padding: 5px 15px 10px;
+                color: white;
                 border: 1px solid white;
-                background: rgba(255, 50, 50, .5);
+                background: rgba(255, 50, 50, 0.5);
                 border-radius: 20px;
                 transition: .5s all ease-in-out;
                 &:hover {
