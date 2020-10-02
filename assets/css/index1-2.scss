@@ -1,5 +1,5 @@
 @import 'font.scss';
-@import 'preloader.scss';
+@import 'preloader1.scss';
 
 html {
     font-size: calc((10 / 400) * 100vw);
@@ -15,8 +15,43 @@ body{
     background: #000;
 }
 
+.go-to-cart{
+    color: red;
+    padding: 6px 14px;
+    border: 1px solid red;
+    border-radius: 20px;
+    font-size: 1.5rem;
+}
+
+html, body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
 input, textarea{
     color: white;
+    font-family: 'TT2020', sans-serif;
 }
 
 .container{

@@ -42,7 +42,7 @@ waitStore.then(function() {
         disclaimer.className = 'disclaimer';
         disclaimer.innerHTML = `
             <p>Сьогодні працюємо з 9:00 до 20:00</p>
-            <p>На приготування замовлення нам потрубно до 20хв</p>
+            <p>На приготування замовлення нам потрібно до 20 хвилин.</p>
             <p>Всі ціни вказані у гривнях.</p>
         `
 
@@ -77,6 +77,18 @@ waitStore.then(function() {
                     `
             shop.append(item);
         }
+        createButton = document.createElement('div');
+        createButton.className = 'button-go-cart'
+        createButton.innerHTML = `
+                                    <a href='#' class="go-to-cart">Замовити</a>
+
+                                    `
+        shop.append(createButton);
+        document.querySelector(".go-to-cart").addEventListener('click', e => {
+            e.preventDefault();
+            var instance = M.Tabs.getInstance(document.querySelector(".tabs"));
+            instance.select("mainCart");
+          });
     }
     renderShop()
 
@@ -163,9 +175,9 @@ waitStore.then(function() {
             }
             document.querySelector('.counter-cart').setAttribute('data-count', allCount)
             // allPrice.dataset.price = cartPrice;
-            allPrice.textContent = `Сумма замовлення: ${cartPrice} Грн`;
-
+            allPrice.innerHTML = `<p>Сумма замовлення: <span class="number">${cartPrice}</span> Грн</p>`;
         }
+
         if (cart.textContent == '') {
             cart.textContent = 'Нажаль в вашій корзині немає товарів'
             allPrice.textContent = '';
@@ -307,7 +319,7 @@ waitStore.then(function() {
             for (let id in store) {
                 store[id].count = 0;
             }
-            alert('Ваше замовлення прийняте. Ми зателефонуємо вам протягом 10 хв.');
+            alert('Дякуємо за замовлення. Ми зателефонуємо вам протягом 10 хв для підтвердженя.');
             location.href = '/';
         }
 
