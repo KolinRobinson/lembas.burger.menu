@@ -282,6 +282,7 @@ waitStore.then(function() {
 
 
             sendMsg(objCart)
+
         })
 
         function sendMsg(data) {
@@ -316,6 +317,8 @@ waitStore.then(function() {
             for (let id in store) {
                 store[id].count = 0;
             }
+            alert('Ваше замовлення прийняте. Ми зателефонуємо вам протягом 10 хв.');
+            location.href = '/';
         }
 
     }
