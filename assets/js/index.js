@@ -197,13 +197,13 @@ waitStore.then(function() {
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{6, 11}" id="telephone" required type="tel" class="validate form-cart-input">
+                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{6,11}" id="telephone" required type="tel" data-error="Введіть корректний номер телефону" class="validate form-cart-input">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">timer</i>
-                <input placeholder="О котрій на вас чекати?"  id="time" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
+                <input placeholder="О котрій на вас чекати?"  id="time" value="${timeNow}" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
                 </div>
             </div>
             <button id="submitCart" class="btn waves-effect waves-light" type="submit">Замовити
