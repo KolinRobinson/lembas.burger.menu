@@ -17,6 +17,7 @@
 .preloader {
   position: fixed;
   left: 0;
+  width: 100vw;
   top: 0;
   right: 0;
   bottom: 0;
@@ -75,7 +76,6 @@ html {
 }
 
 body {
-  position: relative;
   color: white;
   background: #000;
 }
@@ -89,6 +89,9 @@ body {
 }
 
 html, body {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -358,6 +361,7 @@ footer p {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  padding: 0 3px;
   margin: 0;
 }
 
@@ -398,7 +402,7 @@ footer p {
 
 @media (min-width: 300px) and (max-width: 450px) {
   .item .price {
-    max-width: 75px;
+    max-width: 70px;
   }
 }
 
@@ -615,4 +619,4 @@ form {
 #submitCart {
   margin: 0 auto;
 }
-/*# sourceMappingURL=index1.css.map */
+/*# sourceMappingURL=index1-3.css.map */

@@ -2,6 +2,7 @@
 .preloader {
   position: fixed;
   left: 0;
+  width: 100vw;
   top: 0;
   right: 0;
   bottom: 0;
@@ -47,4 +48,4 @@
 .loaded .preloader {
   display: none;
 }
-/*# sourceMappingURL=preloader.css.map */
+/*# sourceMappingURL=preloader1.css.map */
