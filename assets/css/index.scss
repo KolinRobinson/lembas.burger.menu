@@ -114,6 +114,29 @@ main {
     }
 }
 
+footer{
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p{
+        font-size: 1.2rem;
+    }
+}
+
+.disclaimer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    p {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 1;
+    }
+}
+
 #cardShop {
     display: flex;
     flex-direction: column;

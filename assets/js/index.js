@@ -43,6 +43,15 @@ waitStore.then(function() {
     console.log(store)
     function renderShop() {
         shop.textContent = '';
+        let disclaimer = document.createElement('div');
+        disclaimer.className = 'disclaimer';
+        disclaimer.innerHTML = `
+            <p>Сьогодні працюємо з 9:00 до 20:00</p>
+            <p>На приготування замовлення нам потрубно до 20хв</p>
+            <p>Всі ціни вказані у гривнях.</p>
+        `
+
+        shop.append(disclaimer)
 
         for (let id in store) {
             let item = document.createElement('article');
