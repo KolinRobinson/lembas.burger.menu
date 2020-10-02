@@ -3,13 +3,9 @@ const TOKEN = '1272364794:AAFiiNKTnubqFnMZKsgjAgYjVH3cHVi8uaY'; // токен о
 const CHAT_ID = '-369991492';
 
 
-console.log(document.body.clientWidth > 1024)
-
 if(document.body.clientWidth > 1024){
     document.body.textContent = `сайт доступний тільки на мобільних телефонах та планшетах. Дякуємо за розуміння.`
 } else{
-
-    console.log('work')
 
 let store = {};
 let shop = document.querySelector('#cardShop');
@@ -40,7 +36,6 @@ let waitStore = new Promise((resolve, reject) => {
 
 
 waitStore.then(function() {
-    console.log(store)
     function renderShop() {
         shop.textContent = '';
         let disclaimer = document.createElement('div');
@@ -188,10 +183,6 @@ waitStore.then(function() {
         let CurrentTime = new Date();
         CurrentTime.setTime(CurrentTime.getTime() + 20*60*1000);
         let timeNow;
-        console.log(CurrentTime.setMinutes(CurrentTime.getMinutes()))
-        console.log(CurrentTime)
-        console.log(CurrentTime.getHours())
-        console.log(CurrentTime.getMinutes())
         if(CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "19:40" ){
             timeNow = "08:20";
         } else {
@@ -284,7 +275,6 @@ waitStore.then(function() {
         })
 
         function sendMsg(data) {
-            console.log(data)
             let url = 'https://api.telegram.org/bot' + TOKEN + '/sendMessage'; // токен бота
 
 
