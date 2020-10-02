@@ -206,6 +206,9 @@ waitStore.then(function() {
                 <input placeholder="О котрій на вас чекати?"  id="time" value="${timeNow}" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
                 </div>
             </div>
+            <div className="row">
+            <input type="time"/>
+            </div>
             <button id="submitCart" class="btn waves-effect waves-light" type="submit">Замовити
                 <i class="material-icons right">send</i>
             </button>
