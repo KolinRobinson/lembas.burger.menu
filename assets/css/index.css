@@ -76,7 +76,7 @@ html {
   }
 }
 
-input {
+input, textarea {
   color: white;
 }
 

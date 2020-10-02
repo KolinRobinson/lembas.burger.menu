@@ -177,10 +177,13 @@ waitStore.then(function() {
     function renderForm() {
         form.textContent = '';
         let CurrentTime = new Date();
+        CurrentTime.setTime(CurrentTime.getTime() + 20*60*1000);
         let timeNow;
-        CurrentTime.setMinutes(CurrentTime.getMinutes() + 15);
-        console.log(CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "19:40");
-        if(CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "19:40" ){
+        console.log(CurrentTime.setMinutes(CurrentTime.getMinutes()))
+        console.log(CurrentTime)
+        console.log(CurrentTime.getHours())
+        console.log(CurrentTime.getMinutes())
+        if(CurrentTime.getHours()+":"+CurrentTime.getMinutes() < "08:00" || CurrentTime.getHours()+":"+CurrentTime.getMinutes() > "19:40" ){
             timeNow = "08:20";
         } else {
             timeNow = CurrentTime.getHours()+":"+CurrentTime.getMinutes();
@@ -197,17 +200,22 @@ waitStore.then(function() {
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input placeholder="Ваш номер телефону" autocomplete="on" pattern="[0-9]{6,11}" id="telephone" required type="tel" data-error="Введіть корректний номер телефону" class="validate form-cart-input">
+                <input placeholder="Ваш номер телефону" autocomplete="true" pattern="[0-9]{6,11}" id="telephone" required type="tel" data-error="Введіть корректний номер телефону" class="validate form-cart-input">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">timer</i>
-                <input placeholder="О котрій на вас чекати?"  id="time" value="${timeNow}" required type="time" min="${timeNow}" max="19:30" step="1200" class="form-cart-input">
+                <input placeholder="О котрій на вас чекати?"  id="time" value="${timeNow}" required type="time" min="${timeNow}" max="19:30" step="1200" class="timepicker form-cart-input">
                 </div>
             </div>
             <div className="row">
-            <input type="time"/>
+                <p>
+                    Якщо у вас є якісь побажання або ви маєте алергію на якийсь із інгредієнтів - вкажіть це в коментарях!
+                </p>
+                <div class="input-field col s12">
+                <textarea id="textarea1" placeholder="Коментар" class="materialize-textarea"></textarea>
+        </div>
             </div>
             <button id="submitCart" class="btn waves-effect waves-light" type="submit">Замовити
                 <i class="material-icons right">send</i>
@@ -227,6 +235,8 @@ waitStore.then(function() {
                 submitCart.disabled = true;
             }
             inputs[i].addEventListener('change', () => {
+                console.log(document.querySelector('#time').value < timeNow)
+                console.log(document.querySelector('#time').value < document.querySelector('#time').max)
                 for (let i = 0; i < inputs.length; i++) {
                     if (!inputs[i].value) {
                         return submitCart.disabled = true;
@@ -259,6 +269,7 @@ waitStore.then(function() {
             }
             objCart["product"] = product;
             objCart["fullPrice"] = cartPrice;
+            objCart["comment"] = document.querySelector('#textarea1').value;
 
 
             sendMsg(objCart)
@@ -278,6 +289,7 @@ waitStore.then(function() {
                 \n*Телефон:*   ${data.telephone}
                 \n*Во сколько нужен заказ:*   ${data.time}
                 \n*Стоимость заказа:*   ${data.fullPrice} грн
+                \n*Коментар:*   ${data.comment}.
                 \n*Заказ:*  ${data.product}
                 `
             });
