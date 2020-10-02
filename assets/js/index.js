@@ -215,7 +215,7 @@ waitStore.then(function() {
             <div class="row">
                 <div class="input-field col s12">
                 <i class="material-icons prefix">timer</i>
-                <input placeholder="О котрій на вас чекати?"  id="text" value="${timeNow}" required type="time" min="${timeNow}" max="19:30" step="1200" class="timepicker form-cart-input">
+                <input placeholder="О котрій на вас чекати?"  id="time" value="${timeNow}" required type="text" min="${timeNow}" max="19:30" step="1200" class="timepicker form-cart-input">
                 </div>
             </div>
             <div className="row">
@@ -244,8 +244,6 @@ waitStore.then(function() {
                 submitCart.disabled = true;
             }
             inputs[i].addEventListener('change', () => {
-                console.log(document.querySelector('#time').value < timeNow)
-                console.log(document.querySelector('#time').value < document.querySelector('#time').max)
                 for (let i = 0; i < inputs.length; i++) {
                     if (!inputs[i].value) {
                         return submitCart.disabled = true;
