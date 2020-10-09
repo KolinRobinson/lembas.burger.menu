@@ -13,6 +13,7 @@ let cart = document.querySelector('#siteCart');
 let form = document.querySelector('#formCart');
 let allPrice = document.querySelector('#allPrice');
 let cartPrice;
+let mainContainer = [];
 
 
 let client = contentful.createClient({
@@ -34,10 +35,20 @@ let waitStore = new Promise((resolve, reject) => {
         });
 })
 
-
 waitStore.then(function() {
     function renderShop() {
         shop.textContent = '';
+
+function startCategory (){
+    const checkList = Object.keys(store).map((item) => {
+        return store[item].category
+    })
+    const uniqueSet = new Set(checkList)
+    const backToArray = [...uniqueSet]
+    mainContainer.push(backToArray)
+       }
+        startCategory()
+
         let disclaimer = document.createElement('div');
         disclaimer.className = 'disclaimer';
         disclaimer.innerHTML = `
@@ -77,6 +88,7 @@ waitStore.then(function() {
                     `
             shop.append(item);
         }
+
         createButton = document.createElement('div');
         createButton.className = 'button-go-cart'
         createButton.innerHTML = `
