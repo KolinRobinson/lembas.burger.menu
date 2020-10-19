@@ -16,6 +16,7 @@ let cartPrice;
 let mainContainer = [];
 
 
+
 let client = contentful.createClient({
     space: 'n4lihpuy3y0a',
     environment: 'master', // defaults to 'master' if not set
@@ -39,6 +40,7 @@ waitStore.then(function() {
     function renderShop() {
         shop.textContent = '';
 
+
 function startCategory (){
     const checkList = Object.keys(store).map((item) => {
         return store[item].category
@@ -46,7 +48,8 @@ function startCategory (){
     const uniqueSet = new Set(checkList)
     const backToArray = [...uniqueSet]
     mainContainer.push(backToArray)
-       }
+    // console.log(backToArray)
+}
         startCategory()
 
         let disclaimer = document.createElement('div');
@@ -58,6 +61,22 @@ function startCategory (){
         `
 
         shop.append(disclaimer)
+
+
+
+
+
+
+        let headerMenuList = document.createElement("nav")
+        headerMenuList.classList.add("header__menu")
+        headerMenuList.innerHTML = `
+                <ul class="header__list">
+                <li><button class="header__btn" data-category="${id.category}">Все меню</button></li>
+                <li><button class="header__btn" data-category="${id.category}">Бургери</button></li>
+                <li><button class="header__btn" data-category="${id.category}">Закуски</button></li>
+                <li><button class="header__btn" data-category="${id.category}">Напої</button></li>
+                </ul>`
+        disclaimer.append(headerMenuList)
 
         for (let id in store) {
             let item = document.createElement('article');
@@ -71,6 +90,7 @@ function startCategory (){
             let img = id.photo.fields;
             item.className = 'item';
             item.dataset.articul = id.articul;
+            item.dataset.category = id.category
             item.innerHTML = `
                          <img src="${img.file.url}" class="img_product" alt="${img.title}">
                         <div class="item-header">
@@ -152,6 +172,7 @@ function startCategory (){
         cartPrice = 0;
         let allCount = 0;
 
+
         for (let id in store) {
             if (store[id].count >> 0) {
                 let itemCart = document.createElement('div');
@@ -200,6 +221,46 @@ function startCategory (){
     }
     renderCart()
 
+    const headerBtnParent = document.querySelector('.header__list'),
+        headerBtn = document.querySelectorAll('.header__btn'),
+        headerItems = document.querySelectorAll('.item');
+    function hiddenContent(){
+        headerItems.forEach(item => {
+            item.style.display = "none"
+        })
+    }
+    function showContent(i = 0){
+        headerItems.forEach(item => {
+            item.style.display = "flex"
+        })
+    }
+    // hiddenContent();
+    showContent();
+    headerBtnParent.addEventListener('click', function (event){
+        let target = event.target
+            if (target && target.classList.contains('header__btn')){
+                headerBtn.forEach((item,i) => {
+                if (target === item){
+                    headerItems.forEach((item,i) => {
+                        // for (let i = 0; i < headerItems.length; i++){
+                        console.log(headerItems)
+                        console.log(item)
+                            if (headerBtn.dataset.category === item[i].dataset.category){
+                                // showContent(i)
+                                item.style.display="flex"
+                            }else{
+                                // hiddenContent()
+                                item.style.display="none"
+                            }
+
+                        // }
+                    })
+                    }
+
+                })
+
+    }
+    })
 
 
     function renderForm() {

@@ -557,6 +557,37 @@ footer p {
           align-items: center;
 }
 
+/*Код Михаила*/
+.header__menu{
+  width: 100%;
+}
+.header__list{
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+  /*font-size: 1rem;*/
+  height: 20px;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+.header__list li{
+
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 8px;
+  /*height: 20px;*/
+}
+.header__btn{
+  font-family: 'TT2020';
+  background-color: transparent;
+  outline: none;
+  border:none;
+  color: white;
+}
+.hide{
+  display: none;
+}
 @media (min-width: 300px) and (max-width: 450px) {
   .item-cart .cart-right {
     display: -webkit-box;
@@ -620,3 +651,9 @@ form {
   margin: 0 auto;
 }
 /*# sourceMappingURL=index1-3.css.map */
+
+
+/*Мой код*/
+
+
+
