@@ -48,7 +48,8 @@ function startCategory (){
     const uniqueSet = new Set(checkList)
     const backToArray = [...uniqueSet]
     mainContainer.push(backToArray)
-    // console.log(backToArray)
+    // backToArray.push(mainContainer)
+    console.log(backToArray)
 }
         startCategory()
 
@@ -67,20 +68,39 @@ function startCategory (){
 
 
 
+    //     let headerMenuList = document.createElement("nav")
+    //     headerMenuList.classList.add("header__menu")
+    //     let head = document.createElement("ul")
+    //     head.classList.add("header__list")
+    //     head.innerHTML = `
+    //             <li><button class="header__btn" data-category="all">Все меню</button></li>
+    //             ${head.append(headerMenuList)}
+    //     `
+    // for (let id in store ){
+    //     id = store[id]
+    //     headerMenuList.innerHTML = `
+    //             <li><button class="header__btn" data-category="${mainContainer[0]}">Бургери</button></li>
+    //             <li><button class="header__btn" data-category="${mainContainer[1]}">Закуски</button></li>
+    //             <li><button class="header__btn" data-category="${mainContainer[2]}">Напої</button></li>
+    //             `
+    // }
         let headerMenuList = document.createElement("nav")
         headerMenuList.classList.add("header__menu")
-    for (let id in store ){
-        headerMenuList.innerHTML = `
-                <ul class="header__list">
-                <li><button class="header__btn" data-category="${id.category}">Все меню</button></li>
-                <li><button class="header__btn" data-category="${id.category}">Бургери</button></li>
-                <li><button class="header__btn" data-category="${id.category}">Закуски</button></li>
-                <li><button class="header__btn" data-category="${id.category}">Напої</button></li>
-                </ul>`
-        console.log(store)
-        console.log(id)
-        console.log(id.category)
-    }
+        let head = document.createElement("ul")
+        head.classList.add("header__list")
+        head.innerHTML = `
+                <li><button class="header__btn" data-category="all">Все меню</button></li>
+        `
+        console.log(mainContainer)
+        console.log(mainContainer.length)
+        for (let i = 0;i < mainContainer.length;i++ ){
+            let id = mainContainer[i]
+            headerMenuList.innerHTML = `
+                <li><button class="header__btn" data-category="${id.category}">${id.category}</button></li>
+                `
+            console.log(mainContainer.length)
+        }
+        head.append(headerMenuList)
 
 
         disclaimer.append(headerMenuList)
@@ -247,20 +267,19 @@ function startCategory (){
         let target = event.target
             if (target && target.classList.contains('header__btn')){
                 headerBtn.forEach((item,i) => {
+                    console.log(item)
                 if (target === item){
+                    let filterClass = target.dataset['category']
+                    console.log(item.dataset.category)
                     headerItems.forEach((item,i) => {
-                        // for (let i = 0; i < headerItems.length; i++){
                         console.log(headerItems)
-                        console.log(item)
-                            if (headerBtn.dataset.category === item[i].dataset.category){
+                            if (filterClass === item[i].dataset.category){
                                 // showContent(i)
                                 item.style.display="flex"
                             }else{
                                 // hiddenContent()
                                 item.style.display="none"
                             }
-
-                        // }
                     })
                     }
 
