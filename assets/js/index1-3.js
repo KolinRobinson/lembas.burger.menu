@@ -41,16 +41,13 @@ waitStore.then(function() {
         shop.textContent = '';
 
 
-function startCategory (){
-    const checkList = Object.keys(store).map((item) => {
-        return store[item].category
-    })
-    const uniqueSet = new Set(checkList)
-    const backToArray = [...uniqueSet]
-    mainContainer.push(backToArray)
-    // backToArray.push(mainContainer)
-    console.log(backToArray)
-}
+        function startCategory() {
+            const checkList = Object.keys(store).map((item) => {
+                return store[item].category
+            })
+            const uniqueSet = new Set(checkList)
+            return mainContainer = [...uniqueSet]
+        }
         startCategory()
 
         let disclaimer = document.createElement('div');
@@ -63,45 +60,21 @@ function startCategory (){
 
         shop.append(disclaimer)
 
-
-
-
-
-
-    //     let headerMenuList = document.createElement("nav")
-    //     headerMenuList.classList.add("header__menu")
-    //     let head = document.createElement("ul")
-    //     head.classList.add("header__list")
-    //     head.innerHTML = `
-    //             <li><button class="header__btn" data-category="all">Все меню</button></li>
-    //             ${head.append(headerMenuList)}
-    //     `
-    // for (let id in store ){
-    //     id = store[id]
-    //     headerMenuList.innerHTML = `
-    //             <li><button class="header__btn" data-category="${mainContainer[0]}">Бургери</button></li>
-    //             <li><button class="header__btn" data-category="${mainContainer[1]}">Закуски</button></li>
-    //             <li><button class="header__btn" data-category="${mainContainer[2]}">Напої</button></li>
-    //             `
-    // }
         let headerMenuList = document.createElement("nav")
         headerMenuList.classList.add("header__menu")
         let head = document.createElement("ul")
         head.classList.add("header__list")
         head.innerHTML = `
                 <li><button class="header__btn" data-category="all">Все меню</button></li>
-        `
-        console.log(mainContainer)
-        console.log(mainContainer.length)
-        for (let i = 0;i < mainContainer.length;i++ ){
-            let id = mainContainer[i]
-            headerMenuList.innerHTML = `
-                <li><button class="header__btn" data-category="${id.category}">${id.category}</button></li>
+            `
+        headerMenuList.append(head)
+        for (let id in mainContainer) {
+            let itemLi = document.createElement("li")
+            itemLi.innerHTML = `
+                <button class="header__btn" data-category="${mainContainer[id]}">${mainContainer[id]}</button>
                 `
-            console.log(mainContainer.length)
+            head.append(itemLi);
         }
-        head.append(headerMenuList)
-
 
         disclaimer.append(headerMenuList)
 
@@ -261,23 +234,20 @@ function startCategory (){
             item.style.display = "flex"
         })
     }
-    // hiddenContent();
     showContent();
     headerBtnParent.addEventListener('click', function (event){
         let target = event.target
             if (target && target.classList.contains('header__btn')){
-                headerBtn.forEach((item,i) => {
-                    console.log(item)
-                if (target === item){
-                    let filterClass = target.dataset['category']
-                    console.log(item.dataset.category)
+                headerBtn.forEach((btn,i) => {
+                if (target === btn){
                     headerItems.forEach((item,i) => {
-                        console.log(headerItems)
-                            if (filterClass === item[i].dataset.category){
-                                // showContent(i)
+                        if(btn.getAttribute('data-category') === 'all'){
+                            item.style.display="flex"
+                        }else if (btn.dataset.category === item.dataset.category){
                                 item.style.display="flex"
-                            }else{
-                                // hiddenContent()
+                            }
+
+                else{
                                 item.style.display="none"
                             }
                     })
