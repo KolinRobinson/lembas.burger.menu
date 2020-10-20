@@ -69,6 +69,7 @@ function startCategory (){
 
         let headerMenuList = document.createElement("nav")
         headerMenuList.classList.add("header__menu")
+    for (let id in store ){
         headerMenuList.innerHTML = `
                 <ul class="header__list">
                 <li><button class="header__btn" data-category="${id.category}">Все меню</button></li>
@@ -76,6 +77,12 @@ function startCategory (){
                 <li><button class="header__btn" data-category="${id.category}">Закуски</button></li>
                 <li><button class="header__btn" data-category="${id.category}">Напої</button></li>
                 </ul>`
+        console.log(store)
+        console.log(id)
+        console.log(id.category)
+    }
+
+
         disclaimer.append(headerMenuList)
 
         for (let id in store) {
